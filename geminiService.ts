@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 
 import { GoogleGenAI, Type } from "@google/genai";
 import { ScoreEntry, PerformanceAnalysis } from './types';
@@ -33,7 +34,7 @@ export async function analyzePerformance(scores: ScoreEntry[], studentName: stri
   `;
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await (ai.models as any).generateContent({
       model: "gemini-2.0-flash",
       contents: [{
         role: "user",
