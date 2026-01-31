@@ -1,0 +1,5 @@
+{
+  "name": "Booster",
+  "description": "A high-density academic tracking system with a focus on data visualization. Features a bulk-entry teacher dashboard and a minimalist student performance portal.",
+  "requestFramePermissions": []
+}

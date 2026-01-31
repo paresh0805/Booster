@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-gray-50 via-white to-gray-50;
+    /* App shell spacing */
+    --app-padding: 24px;
+    --brand-indigo: #6366f1;
+    --brand-violet: #7c3aed;
+    --muted: #94a3b8;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Smooth hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-indigo-200;
+  }
+
+  /* Button animations */
+  .btn-press {
+    @apply active:scale-95 transition-transform duration-100;
+  }
+
+  /* Text truncation utilities */
+  .truncate-1 {
+    @apply line-clamp-1;
+  }
+
+  .truncate-2 {
+    @apply line-clamp-2;
+  }
+
+  .truncate-3 {
+    @apply line-clamp-3;
+  }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-indigo-600 to-violet-500;
+  }
+
+  /* App container */
+  .app-shell {
+    @apply min-h-screen text-gray-900 selection:bg-indigo-100;
+    padding: var(--app-padding);
+  }
+
+  /* Dark mode variables */
+  /* Dark mode variables removed to disable class-based theme */
+
+  .gradient-success {
+    @apply bg-gradient-to-r from-emerald-600 to-teal-500;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Responsive typography */
+  .heading-1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-black tracking-tight;
+  }
+
+  .heading-2 {
+    @apply text-2xl md:text-3xl font-bold tracking-tight;
+  }
+
+  .heading-3 {
+    @apply text-xl md:text-2xl font-bold;
+  }
+
+  .body-text {
+    @apply text-base leading-relaxed text-gray-600;
+  }
+
+  .body-small {
+    @apply text-sm leading-relaxed text-gray-500;
+  }
+
+  /* Flex utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+}
+
+/* Custom Animations */
+@layer utilities {
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.5s ease-out;
+  }
+
+  .animate-slideInRight {
+    animation: slideInRight 0.5s ease-out;
+  }
+
+  .animate-slideInLeft {
+    animation: slideInLeft 0.5s ease-out;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
+  }
+
+  /* Responsive padding */
+  .px-responsive {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  .py-responsive {
+    @apply py-6 md:py-8 lg:py-12;
+  }
+
+  /* Shadow utilities */
+  .shadow-soft {
+    @apply shadow-sm shadow-gray-200;
+  }
+
+  .shadow-medium {
+    @apply shadow-md shadow-gray-300/50;
+  }
+
+  .shadow-large {
+    @apply shadow-lg shadow-gray-400/30;
+  }
+}
+
+/* Dark mode helpers removed to disable class-based theme */
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-indigo-500 text-white;
+}
+
+::-moz-selection {
+  @apply bg-indigo-500 text-white;
+}
